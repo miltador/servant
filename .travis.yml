@@ -1,0 +1,30 @@
+os:
+  - linux
+#  - osx - doesn't support node_js
+dist: trusty
+sudo: false
+addons:
+  chrome: stable
+language: node_js
+node_js:
+  - node
+  - 7
+  - 6
+matrix:
+  allow_failures:
+    - node_js: node
+cache:
+  directories:
+    - "modules/client/node_modules"
+    - "modules/server/node_modules"
+before_install:
+  - if [[ \"$TRAVIS_OS_NAME\" == \"osx\" ]]; then brew update; fi
+  - if [[ \"$TRAVIS_OS_NAME\" == \"osx\" ]]; then brew outdated xctool || brew upgrade xctool; fi
+  - if [[ \"$TRAVIS_OS_NAME\" == \"linux\" ]]; then export CHROME_BIN=google-chrome-stable; fi
+  - if [[ \"$TRAVIS_OS_NAME\" == \"osx\" ]]; then brew cask install google-chrome; fi
+  - if [[ \"$TRAVIS_OS_NAME\" == \"linux\" ]]; then export DISPLAY=:99.0; fi
+before_script:
+  - if [[ \"$TRAVIS_OS_NAME\" == \"linux\" ]]; then sh -e /etc/init.d/xvfb start; fi
+script:
+  - cd ./modules/client && npm install && npm run test-ci && npm run lint && cd ../..
+  - cd ./modules/server && npm install && npm run build && cd ../..
