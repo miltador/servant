@@ -8,7 +8,9 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "nodemon"
+    "start": "nodemon",
+    "build": "tsc",
+    "lint": "tslint 'src/**/*.ts' --project tslint.json"
   },
   "private": true,
   "dependencies": {
@@ -22,9 +24,11 @@
     "@types/koa": "^2.0.39",
     "@types/koa-bodyparser": "^3.0.23",
     "@types/koa-router": "^7.0.22",
+    "@types/node": "^8.0.7",
     "graphql": "^0.10.3",
     "graphql-server-koa": "^1.0.0",
     "ts-node": "^3.1.0",
+    "tslint": "^5.4.3",
     "typescript": "^2.4.1"
   }
 }

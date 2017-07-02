@@ -6,10 +6,10 @@ import {Context} from 'koa';
  */
 export const AppRoutes = [
   {
-    path: '/',
-    method: 'get',
-    action: async function (context: Context) {
+    action: async function(context: Context) {
       context.body = 'Hello 123!';
-    }
-  }
+    },
+    method: 'get',
+    path: '/',
+  },
 ];
