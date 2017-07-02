@@ -1,0 +1,30 @@
+{
+  "name": "servant-server",
+  "version": "0.0.0",
+  "author": "Vasyl Solovei <iam@miltador.pro>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/miltador/servant.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon"
+  },
+  "private": true,
+  "dependencies": {
+    "koa": "^2.3.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-router": "^7.2.1",
+    "nodemon": "^1.11.0",
+    "reflect-metadata": "^0.1.10"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.0.39",
+    "@types/koa-bodyparser": "^3.0.23",
+    "@types/koa-router": "^7.0.22",
+    "graphql": "^0.10.3",
+    "graphql-server-koa": "^1.0.0",
+    "ts-node": "^3.1.0",
+    "typescript": "^2.4.1"
+  }
+}
